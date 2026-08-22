@@ -1,0 +1,177 @@
+.login-page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 24px;
+  background: var(--page);
+}
+
+.login-card {
+  width: min(100%, 410px);
+  padding: 34px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card-strong);
+}
+
+.brand-mark {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  margin-bottom: 24px;
+  color: var(--green);
+}
+
+.brand-mark.small {
+  width: 32px;
+  height: 32px;
+  margin: 0;
+}
+
+.login-note {
+  margin-bottom: 24px;
+  line-height: 1.55;
+}
+
+label {
+  display: grid;
+  gap: 7px;
+  margin-bottom: 16px;
+  font-size: 0.88rem;
+  font-weight: 650;
+}
+
+input {
+  width: 100%;
+  height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--page);
+  color: var(--text);
+}
+
+input:hover {
+  border-color: var(--green);
+}
+
+.primary-button,
+.secondary-button,
+.danger-button,
+.danger-text-button,
+.text-button,
+.icon-button,
+.action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 40px;
+  border: 0;
+  border-radius: var(--radius);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.primary-button {
+  padding: 0 16px;
+  background: var(--green);
+  color: #fff;
+}
+
+:root[data-theme='dark'] .primary-button {
+  color: #07120b;
+}
+
+.primary-button:hover {
+  background: var(--green-bright);
+}
+
+.secondary-button {
+  padding: 0 14px;
+  border: 1px solid var(--line-strong);
+  background: var(--card-strong);
+}
+
+.secondary-button:hover,
+.text-button:hover,
+.icon-button:hover {
+  background: var(--mint);
+  color: var(--green);
+}
+
+.danger-button {
+  padding: 0 16px;
+  background: var(--red);
+  color: #fff;
+}
+
+.danger-text-button {
+  padding: 0 11px;
+  background: transparent;
+  color: var(--red-dark);
+}
+
+.danger-text-button:hover {
+  background: var(--danger-wash);
+}
+
+.text-button {
+  padding: 0 10px;
+  background: transparent;
+}
+
+.icon-button {
+  width: 38px;
+  min-width: 38px;
+  padding: 0;
+  background: transparent;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.icon-button.danger:hover {
+  background: var(--danger-wash);
+  color: var(--red);
+}
+
+.action-button {
+  min-width: 38px;
+  padding: 0 9px;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-decoration: none;
+}
+
+.action-button:hover {
+  background: var(--mint);
+  color: var(--green);
+}
+
+.action-button.danger:hover {
+  background: var(--danger-wash);
+  color: var(--red-dark);
+}
+
+button:disabled,
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.full-button {
+  width: 100%;
+  margin-top: 6px;
+}
+
+.form-error,
+.error-note {
+  color: var(--red-dark);
+}
+
+.form-error {
+  margin: 0 0 14px;
+  font-size: 0.88rem;
+}

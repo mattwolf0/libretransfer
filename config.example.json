@@ -1,0 +1,12 @@
+{
+  "folders": [
+    {
+      "id": "main",
+      "name": "Files",
+      "path": "share",
+      "allow_upload": true,
+      "show_hidden": false,
+      "create_if_missing": true
+    }
+  ]
+}

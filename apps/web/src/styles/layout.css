@@ -1,0 +1,149 @@
+.app-frame {
+  display: grid;
+  min-height: 100vh;
+  grid-template-areas:
+    'top top'
+    'side main';
+  grid-template-columns: var(--side-width) minmax(0, 1fr);
+  grid-template-rows: var(--top-height) minmax(0, 1fr);
+}
+
+.top-bar {
+  position: sticky;
+  z-index: 20;
+  top: 0;
+  grid-area: top;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--top-height);
+  padding: 0 18px;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--page) 94%, transparent);
+  backdrop-filter: blur(12px);
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.brand-link > span:last-child {
+  display: grid;
+  line-height: 1.15;
+}
+
+.brand-link strong {
+  font-size: 0.98rem;
+}
+
+.brand-link small {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 0.81rem;
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.compact-button {
+  min-width: 40px;
+  font-size: 0.78rem;
+}
+
+.user-chip {
+  margin: 0 8px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.side-bar {
+  position: sticky;
+  top: var(--top-height);
+  grid-area: side;
+  height: calc(100vh - var(--top-height));
+  padding: 20px 12px;
+  border-right: 1px solid var(--line);
+  background: var(--card);
+}
+
+.side-title {
+  margin: 0 10px 9px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.storage-nav {
+  display: grid;
+  gap: 4px;
+}
+
+.storage-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 54px;
+  padding: 7px 9px;
+  border-radius: var(--radius);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.storage-link:hover {
+  background: var(--page);
+}
+
+.storage-link.active {
+  background: var(--mint);
+  color: var(--green);
+}
+
+.storage-link > span:last-child {
+  display: grid;
+  min-width: 0;
+  line-height: 1.2;
+}
+
+.storage-link strong {
+  overflow: hidden;
+  font-size: 0.88rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.storage-link small {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.81rem;
+}
+
+.storage-icon {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card-strong);
+  color: var(--green);
+}
+
+.main-view {
+  grid-area: main;
+  min-width: 0;
+  padding: 30px clamp(18px, 4vw, 48px) 50px;
+}

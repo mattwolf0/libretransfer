@@ -1,0 +1,66 @@
+# Local configurations
+.env
+.env.*
+!.env.example
+/config.json
+/certs/
+
+# Runtime data
+/data/
+/logs/
+/share/
+/apps/api/data/
+/apps/api/share/
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+*.log
+.libretransfer-trash/
+.libretransfer-uploads/
+
+# Node.js builds
+node_modules/
+.pnpm-store/
+.vite/
+.cache/
+.nyc_output/
+.eslintcache
+coverage/
+apps/api/dist/
+apps/web/dist/
+*.tsbuildinfo
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+/.tmp/
+/tmp/
+*.tmp
+*.temp
+*.bak
+*.orig
+*.swp
+*.new.zip
+*.pid
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+
+# Keys and certificates
+*.key
+*.pem
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+# Scripts
+/*.bat
+/scripts/windows/

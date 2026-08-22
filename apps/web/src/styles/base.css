@@ -1,0 +1,156 @@
+:root {
+  color-scheme: light;
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  --green: #1f7a4d;
+  --green-bright: #167044;
+  --amber: #c9821f;
+  --red: #c94f40;
+  --red-dark: #a9382c;
+  --page: #ffffff;
+  --card: #fafafa;
+  --card-strong: #ffffff;
+  --line: #e4e7e4;
+  --line-strong: #ced4cf;
+  --text: #151a17;
+  --muted: #68736c;
+  --mint: #e3f1e9;
+  --honey: #ffe9c7;
+  --danger-wash: #fbe8e5;
+  --radius: 7px;
+  --top-height: 68px;
+  --side-width: 244px;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --green: #72d39d;
+  --green-bright: #8be1ae;
+  --amber: #e5a752;
+  --red: #ed786b;
+  --red-dark: #ff9388;
+  --page: #0f1210;
+  --card: #171b18;
+  --card-strong: #1c211d;
+  --line: #2a302b;
+  --line-strong: #3a443c;
+  --text: #f4f7f4;
+  --muted: #adb8af;
+  --mint: #183a27;
+  --honey: #3c2a12;
+  --danger-wash: #3f211e;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --green: #72d39d;
+    --green-bright: #8be1ae;
+    --amber: #e5a752;
+    --red: #ed786b;
+    --red-dark: #ff9388;
+    --page: #0f1210;
+    --card: #171b18;
+    --card-strong: #1c211d;
+    --line: #2a302b;
+    --line-strong: #3a443c;
+    --text: #f4f7f4;
+    --muted: #adb8af;
+    --mint: #183a27;
+    --honey: #3c2a12;
+    --danger-wash: #3f211e;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-width: 320px;
+  background: var(--page);
+  color: var(--text);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--green) 35%, transparent);
+  outline-offset: 2px;
+}
+
+select:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--green) 35%, transparent);
+  outline-offset: 2px;
+}
+
+button {
+  color: inherit;
+}
+
+h1,
+h2,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  margin-bottom: 6px;
+  font-size: clamp(1.7rem, 3vw, 2.15rem);
+  line-height: 1.14;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-size: 1.15rem;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.eyebrow {
+  margin-bottom: 6px;
+  color: var(--green);
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}

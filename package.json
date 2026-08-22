@@ -1,0 +1,15 @@
+{
+  "name": "libretransfer",
+  "private": true,
+  "packageManager": "pnpm@11.9.0",
+  "scripts": {
+    "build": "pnpm --filter @libretransfer/web build && pnpm --filter @libretransfer/api build",
+    "check": "pnpm -r check",
+    "cli": "pnpm --filter @libretransfer/api cli",
+    "dev": "pnpm --parallel --filter @libretransfer/api --filter @libretransfer/web dev",
+    "format": "pnpm -r format",
+    "setup": "node apps/api/dist/cli.js app setup",
+    "start": "node apps/api/dist/cli.js app start",
+    "test": "pnpm -r test"
+  }
+}

@@ -1,0 +1,9 @@
+node_modules
+apps/api/dist
+apps/api/coverage
+apps/web/dist
+apps/web/coverage
+data
+logs
+share
+certs

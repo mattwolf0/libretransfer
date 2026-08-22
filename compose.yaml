@@ -1,0 +1,51 @@
+name: libretransfer
+
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    environment:
+      LIBRETRANSFER_ENVIRONMENT: production
+      LIBRETRANSFER_HOST: 0.0.0.0
+      LIBRETRANSFER_DATABASE_PATH: /app/data/libretransfer.db
+      LIBRETRANSFER_CONFIG_PATH: /app/config.json
+      LIBRETRANSFER_WEB_PATH: /app/apps/web/dist
+      LIBRETRANSFER_ADMIN_USER: ${LIBRETRANSFER_ADMIN_USER:-admin}
+      LIBRETRANSFER_ADMIN_PASSWORD: ${LIBRETRANSFER_ADMIN_PASSWORD:?Set LIBRETRANSFER_ADMIN_PASSWORD in .env}
+      LIBRETRANSFER_COOKIE_SECURE: 'true'
+      LIBRETRANSFER_ALLOWED_ORIGINS: '["https://${LIBRETRANSFER_DOMAIN:-localhost}"]'
+      LIBRETRANSFER_TRUSTED_HOSTS: '["${LIBRETRANSFER_DOMAIN:-localhost}","localhost","127.0.0.1"]'
+      LIBRETRANSFER_LOG_LEVEL: ${LIBRETRANSFER_LOG_LEVEL:-info}
+      LIBRETRANSFER_MAX_UPLOAD_MB: ${LIBRETRANSFER_MAX_UPLOAD_MB:-4096}
+    volumes:
+      - app_data:/app/data
+      - ./config.json:/app/config.json:ro
+      - ${LIBRETRANSFER_FILES_PATH:-./share}:/app/share
+    expose:
+      - '8000'
+    security_opt:
+      - no-new-privileges:true
+
+  caddy:
+    image: caddy:2.10.2-alpine
+    restart: unless-stopped
+    depends_on:
+      app:
+        condition: service_healthy
+    environment:
+      LIBRETRANSFER_DOMAIN: ${LIBRETRANSFER_DOMAIN:-localhost}
+      LIBRETRANSFER_MAX_BODY: ${LIBRETRANSFER_MAX_BODY:-5GB}
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - ./infra/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    security_opt:
+      - no-new-privileges:true
+
+volumes:
+  app_data:
+  caddy_data:
+  caddy_config:
